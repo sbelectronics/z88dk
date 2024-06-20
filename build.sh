@@ -184,7 +184,6 @@ ZCCCFG=`pwd`/lib/config/                # Set ZCCCFG to the lib config directory
 mkdir -p $ZCCCFG                        # Guarantee that the directory exists
 export ZCCCFG
 
-
 if [ $do_build = 1 ]; then              # Build binaries or not...
   $MAKE DESTDIR=$DESTDIR
 fi

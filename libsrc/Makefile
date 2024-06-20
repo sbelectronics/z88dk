@@ -58,6 +58,7 @@ TOCREATE += $(call check_target,hemc,hemc_clib.lib)
 TOCREATE += $(call check_target,hgmc,hgmc_clib.lib)
 TOCREATE += $(call check_target,homelab,homelab_clib.lib)
 TOCREATE += $(call check_target,homelab2,homelab2_clib.lib)
+TOCREATE += $(call check_target,isis,isis_clib.lib)
 TOCREATE += $(call check_target,kaypro,gfxkp.lib $(CPMLIBS))
 TOCREATE += $(call check_target,kc,kc_clib.lib)
 TOCREATE += $(call check_target,kramermc,kramermc_clib.lib)
@@ -2055,6 +2056,13 @@ dai_clib.lib: $(TARGET_CLIB_OBJS)
 	@echo ''
 	$(call buildgeneric,dai,portable)
 	TARGET=dai TYPE=8080 $(LIBLINKER) -m8080 -DFORdai -DSTANDARDESCAPECHARS -x$(OUTPUT_DIRECTORY)/dai_clib @$(TARGET_DIRECTORY)/dai/dai.lst
+
+isis_clib.lib: $(TARGET_CLIB_OBJS)
+	@echo ''
+	@echo '--- Building ISIS Library ---'
+	@echo ''
+	$(call buildgeneric,isis,portable)
+	TARGET=isis TYPE=8080 $(LIBLINKER) -m8080 -DSTANDARDESCAPECHARS -DFORisis -x$(OUTPUT_DIRECTORY)/isis_clib @$(TARGET_DIRECTORY)/isis/isis.lst
 
 ondra_clib.lib: $(TARGET_CLIB_OBJS)
 	@echo ''
